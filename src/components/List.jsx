@@ -13,8 +13,7 @@ function List({todo}) {
   return (
     
       <div className={`todo-list-item ${todo.done?"red":""}`}>
-            <input className={`todo-item-text ${isEditText?"input-text-edited":""}`} type="text" value={editText} disabled={!isEditText} onChange={(e)=>setEditText(e.target.value)}/>
-            {todo.done?<span className="todo-cancel-icon" onClick={()=>{
+        {todo.done?<span className="todo-cancel-icon" onClick={()=>{
               dispatch(todoDone(todo))
             }}>
               <CancelIcon/>
@@ -23,6 +22,8 @@ function List({todo}) {
             }}>
               <CheckCircleIcon/>
             </span>}
+            <input className={`todo-item-text ${isEditText?"input-text-edited":""}`} type="text" value={editText} disabled={!isEditText} onChange={(e)=>setEditText(e.target.value)}/>
+            
             <span className={`todo-edit-icon `}  onClick={()=>{
               if(isEditText){
                 setIsEditText(false)
